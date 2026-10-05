@@ -14,13 +14,4 @@ import lombok.NoArgsConstructor;
 public class Customer {
     private Long id;
     private String name;
-    private long balance;
-
-    public void withdraw(long amount) {
-        if (amount > balance) {
-            throw new IllegalStateException("잔액이 부족합니다.");
-        }
-
-        this.balance -= amount;
-    }
 }
