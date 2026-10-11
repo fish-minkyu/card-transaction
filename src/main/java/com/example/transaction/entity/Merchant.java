@@ -15,5 +15,5 @@ public class Merchant {
     private Long id;
     private String name;
     // 수수료율
-    private Float fee_rate;
+    private Float feeRate;
 }

@@ -12,9 +12,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class PointWallet {
-    private Long customer_id;
+    private Long customerId;
     // 현재 사용가능한 총 포인트
     private Long balance;
     // 낙관적 락용 컬럼
     private Long version;
+
+    public void use(long amount) {
+        if (amount > balance) {
+            throw new IllegalStateException("포인트 잔액이 부족합니다.");
+        }
+
+        this.balance -= amount;
+    }
 }

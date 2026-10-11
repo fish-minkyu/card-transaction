@@ -15,14 +15,24 @@ import java.time.LocalDate;
 @Builder
 public class PointEarn {
     private Long id;
-    private Long customer_id;
-    private Long payment_id;
+    private Long customerId;
+    private Long paymentId;
     // 최초 적립량
-    private Long amount;
+    private Integer amount;
     // 현재 남은 양
-    private Long remaining;
+    private Integer remaining;
     // 포인트 만료일자
-    private LocalDate expire_at;
+    private LocalDate expireAt;
     // 사용 가능, 전부 사용, 소멸, 회수
     private String status;
+
+    public long deduct(int requested) {
+        int used = Math.min(remaining, requested);
+        this.remaining -= used;
+        if (this.remaining == 0) {
+            this.status = "USED_UP";
+        }
+
+        return used;
+    }
 }

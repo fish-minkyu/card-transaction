@@ -13,6 +13,7 @@ spring:
       enabled: false        # 앱 켤 때 배치가 멋대로 돌지 않게
 
 mybatis:
+  type-aliases-package: com.example.transaction.entity  # XML에서 클래스 이름을 쓸 때 패키지 경로 전체를 안 써도 되게 해주는 설정
   mapper-locations: classpath:mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true   # card_id 컬럼 → cardId 필드 자동 매핑

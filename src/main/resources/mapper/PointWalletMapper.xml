@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.transaction.mapper.PointWalletMapper">
+
+    <select id="findByCustomerId" resultType="PointWallet">
+        SELECT customer_id, balance, version
+        FROM point_wallet
+        WHERE customer_id = #{customerId}
+    </select>
+
+    <select id="findByCustomerIdForUpdate" resultType="PointWallet">
+        SELECT customer_id, balance, version
+        FROM point_wallet
+        WHERE customer_id = #{customerId}
+        FOR UPDATE
+    </select>
+
+    <update id="updateBalance">
+        UPDATE point_wallet
+        SET balance = #{balance}
+        WHERE customer_id = #{customerId}
+    </update>
+</mapper>

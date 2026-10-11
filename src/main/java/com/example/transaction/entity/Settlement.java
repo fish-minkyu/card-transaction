@@ -17,12 +17,12 @@ import java.time.LocalDate;
 @Builder
 public class Settlement {
     private Long id;
-    private Long merchant_id;
-    private LocalDate settle_date;
+    private Long merchantId;
+    private LocalDate settleDate;
     // 그 날 승인 금액 합계(취소분 제외)
-    private Long total_amount;
+    private Long totalAmount;
     // total_amount × fee_rate로 계산한 수수료
     private Long fee;
     // 실제 가맹점에 지급할 금액
-    private Long net_amount;
+    private Long netAmount;
 }

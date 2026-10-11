@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PointUseDetail {
     private Long id;
-    private Long point_use_id;
-    private Long point_earn_id;
+    private Long pointUseId;
+    private Long pointEarnId;
     // 해당 적립 건에서 실제 차감된 양
-    private Long amount;
+    private Integer amount;
 }

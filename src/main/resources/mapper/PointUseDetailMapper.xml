@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.transaction.mapper.PointUseDetailMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO point_use_detail (point_use_id, point_earn_id, amount)
+        VALUES (#{pointUseId}, #{pointEarnId}, #{amount})
+    </insert>
+
+    <select id="findByPointUseId" resultType="PointUseDetail">
+        SELECT id, point_use_id, point_earn_id, amount
+        FROM point_use_detail
+        WHERE point_use_id = #{pointUseId}
+        ORDER BY id
+    </select>
+</mapper>

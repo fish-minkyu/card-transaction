@@ -16,14 +16,14 @@ import java.time.LocalDateTime;
 public class Payment {
     private Long id;
     // 누가 결제했는지
-    private Long card_id;
+    private Long cardId;
     // 어느 가맹점에서 결제했는지
-    private Long merchant_id;
+    private Long merchantId;
     // 결제 총액
-    private Long amount;
+    private Integer amount;
     // 포인트로 낸 금액
-    private Long point_used;
+    private Long pointUsed;
     // 승인, 취소
     private String status;
-    private LocalDateTime approved_at;
+    private LocalDateTime approvedAt;
 }

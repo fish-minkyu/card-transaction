@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class Card {
     private Long id;
     // 카드의 주인
-    private Long custmer_id;
-    private String card_number;
+    private Long custmerId;
+    private String cardNumber;
     // 정상, 정지, 해지
     private String status;
 }

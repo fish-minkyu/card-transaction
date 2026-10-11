@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.transaction.mapper.PointEarnMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO point_earn (customer_id, payment_id, amount, remaining, expire_at, status)
+        VALUES (#{customerId}, #{paymentId}, #{amount}, #{remaining}, #{expireAt}, #{status})
+    </insert>
+
+    <select id="findUsableByCustomerId" resultType="PointEarn">
+        SELECT id, customer_id, payment_id, amount, remaining, expire_at, status
+        FROM point_earn
+        WHERE
+            customer_id = #{customerId}
+            AND status = 'ACTIVE'
+            AND remaining > 0
+            AND expire_at >= #{today}
+        ORDER BY expire_at ASC, id ASC
+    </select>
+
+    <update id="updateRemaining">
+        UPDATE point_earn
+        SET remaining = #{remaining}, status = #{status}
+        WHERE id = #{id}
+    </update>
+</mapper>
