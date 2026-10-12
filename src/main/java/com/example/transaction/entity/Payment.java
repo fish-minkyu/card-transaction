@@ -20,7 +20,7 @@ public class Payment {
     // 어느 가맹점에서 결제했는지
     private Long merchantId;
     // 결제 총액
-    private Integer amount;
+    private Long amount;
     // 포인트로 낸 금액
     private Long pointUsed;
     // 승인, 취소

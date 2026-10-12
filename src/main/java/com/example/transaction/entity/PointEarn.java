@@ -18,16 +18,16 @@ public class PointEarn {
     private Long customerId;
     private Long paymentId;
     // 최초 적립량
-    private Integer amount;
+    private Long amount;
     // 현재 남은 양
-    private Integer remaining;
+    private Long remaining;
     // 포인트 만료일자
     private LocalDate expireAt;
     // 사용 가능, 전부 사용, 소멸, 회수
     private String status;
 
-    public long deduct(int requested) {
-        int used = Math.min(remaining, requested);
+    public Long deduct(Long requested) {
+        Long used = Math.min(remaining, requested);
         this.remaining -= used;
         if (this.remaining == 0) {
             this.status = "USED_UP";

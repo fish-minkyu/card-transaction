@@ -15,10 +15,12 @@ import java.time.LocalDate;
 @Builder
 public class PointUse {
     private Long id;
+    // 어느 고객이
+    private Long customerId;
     // 어느 결제에 썼는지
     private Long paymentId;
     // 이번에 사용된 양
-    private Integer amount;
+    private Long amount;
     // 사용, 취소 복원, 소멸
     private String type;
     private LocalDate createdAt;
